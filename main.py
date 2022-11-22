@@ -111,4 +111,4 @@ class ticktacktoe():
             return self.reset()
 
 ticktacktoe().start_game()
-print("Githubasd")
+print("Github")
