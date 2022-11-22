@@ -111,4 +111,3 @@ class ticktacktoe():
             return self.reset()
 
 ticktacktoe().start_game()
-print("Github-test")
