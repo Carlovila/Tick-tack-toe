@@ -1,5 +1,6 @@
 class ticktacktoe():
     def __init__(self):
+        """creates the game board"""
         self.board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
     def gameboard(self):
         """display the board"""
@@ -7,6 +8,7 @@ class ticktacktoe():
               f"|{self.board[4]}| |{self.board[5]}| |{self.board[6]}|",
               f"|{self.board[7]}| |{self.board[8]}| |{self.board[9]}|", sep="\n")
     def startgame(self, start=1):
+        """starts the game with player X"""
         if start == 1:
             print("Tick-tack-toe!")
             self.gameboard()
@@ -14,7 +16,7 @@ class ticktacktoe():
         else:
             return
     def tie_check(self):
-        """check for tie"""
+        """checks for tie"""
         tiecheck = self.board[1:]
         if " " in tiecheck:
             return False
@@ -58,7 +60,9 @@ class ticktacktoe():
             return self.reset()
     def move(self, player):
         self.player = player
+        """check if it's tie"""
         if self.tie_check() == False:
+            """enters move to be played"""
             try:
                 cell = int(input(f"Player {player}, choose number 1-9: "))
             except ValueError:
@@ -67,13 +71,17 @@ class ticktacktoe():
             if cell not in range(1,10):
                 print("Not a valid move")
                 return self.move(player)
+            """check if cell is already filled"""
             if self.rule_1(cell) == True:
+                """updates move"""
                 self.board[cell] = player
                 self.gameboard()
+                """checks win conditions"""
                 if self.win_cond(player) == True:
                     print(f"Player {player} wins!")
                     return self.reset()
                 else:
+                    """moves to next player"""
                     if player == "X":
                         return self.move("O")
                     else:
@@ -84,4 +92,6 @@ class ticktacktoe():
         else:
             print("It's a tie!")
             return self.reset()
+
+"""run the game"""
 ticktacktoe().startgame()
