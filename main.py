@@ -1,7 +1,7 @@
 class ticktacktoe():
     def __init__(self):
         """creates the game board"""
-        self.board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+        self.board = [" "] * 10
     def gameboard(self):
         """display the board"""
         print(f"|{self.board[1]}| |{self.board[2]}| |{self.board[3]}|",
@@ -50,13 +50,18 @@ class ticktacktoe():
             return False
     def reset(self):
         """reset game"""
-        reset = input("Play again? (Y/N): ").upper()
+        try:
+            reset = input("Play again? (Y/N): ").upper()
+        except ValueError:
+            print("not valid")
+            return self.reset()
         if reset == "Y":
             self.board = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
             return self.startgame()
         elif reset == "N":
             return self.startgame(0)
         else:
+            print("Not valid")
             return self.reset()
     def move(self, player):
         self.player = player
@@ -69,7 +74,7 @@ class ticktacktoe():
                 print("Not valid")
                 return self.move(player)
             if cell not in range(1,10):
-                print("Not a valid move")
+                print("Not valid")
                 return self.move(player)
             """check if cell is already filled"""
             if self.rule_1(cell) == True:
