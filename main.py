@@ -30,21 +30,21 @@ class ticktacktoe():
             return False
     def win_cond(self, player):
         """define win conditions"""
-        if self.board[1] == player and self.board[2] == player and self.board[3] == player:
+        if [self.board[1], self.board[2], self.board[3]] == [player, player, player]:
             return True
-        if self.board[4] == player and self.board[5] == player and self.board[6] == player:
+        if [self.board[4], self.board[5], self.board[6]] == [player, player, player]:
             return True
-        if self.board[7] == player and self.board[8] == player and self.board[9] == player:
+        if [self.board[7], self.board[8], self.board[9]] == [player, player, player]:
             return True
-        if self.board[1] == player and self.board[4] == player and self.board[7] == player:
+        if [self.board[1], self.board[4], self.board[7]] == [player, player, player]:
             return True
-        if self.board[2] == player and self.board[5] == player and self.board[8] == player:
+        if [self.board[2], self.board[5], self.board[8]] == [player, player, player]:
             return True
-        if self.board[3] == player and self.board[6] == player and self.board[9] == player:
+        if [self.board[3], self.board[6], self.board[9]] == [player, player, player]:
             return True
-        if self.board[1] == player and self.board[5] == player and self.board[9] == player:
+        if [self.board[1], self.board[5], self.board[9]] == [player, player, player]:
             return True
-        if self.board[3] == player and self.board[5] == player and self.board[7] == player:
+        if [self.board[3], self.board[5], self.board[7]] == [player, player, player]:
             return True
         else:
             return False
