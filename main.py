@@ -50,6 +50,7 @@ class ticktacktoe():
             return False
         else:
             return True
+
     def rule_1(self, cell):
         """checks if cell is empty"""
         if self.board[cell] == " ":
