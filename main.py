@@ -113,6 +113,8 @@ class ticktacktoe():
                     self.gameboard()
                 """checks win conditions"""
                 if self.win_con(player=player) == True:
+                    if pc == "Y" and turn ==0:
+                        self.gameboard()
                     print(f"Player {player} wins!")
                     return self.reset(pc=pc, turn=turn)
                 else:
