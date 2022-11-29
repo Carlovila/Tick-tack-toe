@@ -4,7 +4,7 @@ class ticktacktoe():
     def __init__(self):
         """creates the game board"""
         self.board = [" "] * 10
-
+        
     def gameboard(self):
         """display the board"""
         print("-----------")
@@ -12,7 +12,7 @@ class ticktacktoe():
               f"|{self.board[4]}| |{self.board[5]}| |{self.board[6]}|",
               f"|{self.board[7]}| |{self.board[8]}| |{self.board[9]}|", sep="\n")
         print("-----------")
-
+        
     def startgame(self, start=1, pc="N", turn=0, reset=0):
         """starts the game"""
         if start == 1:
@@ -42,7 +42,7 @@ class ticktacktoe():
                     return self.move_player("X", pc=pc, turn=turn)
         else:
             return
-
+        
     def tie_check(self):
         """checks for tie"""
         tiecheck = self.board[1:]
@@ -50,7 +50,6 @@ class ticktacktoe():
             return False
         else:
             return True
-
     def rule_1(self, cell):
         """checks if cell is empty"""
         if self.board[cell] == " ":
