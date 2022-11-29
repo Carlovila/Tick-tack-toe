@@ -39,6 +39,7 @@ class ticktacktoe():
                     else:
                         return self.move_pc("X", pc=pc, turn=turn)
                 else:
+                    self.gameboard()
                     turn = 0
                     return self.move_player("X", pc=pc, turn=turn)
         else:
@@ -109,7 +110,7 @@ class ticktacktoe():
             if self.rule_1(cell=cell) == True:
                 """updates move"""
                 self.board[cell] = player
-                if pc == "Y" and turn == 1:
+                if (pc == "Y" and turn == 1) or (pc == "N"):
                     self.gameboard()
                 """checks win conditions"""
                 if self.win_con(player=player) == True:
